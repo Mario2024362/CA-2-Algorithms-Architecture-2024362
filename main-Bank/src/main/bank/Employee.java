@@ -10,4 +10,32 @@ package main.bank;
  */
 public class Employee {
     
+        public enum Department {
+        IT("IT"), CUSTOMER_SERVICE("Customer Service"), LOANS("Loans"), FINANCE("Finance"),
+        HR("HR"), MARKETING("Marketing"), OPERATIONS("Operations"), RISK_COMPLIANCE("Risk & Compliance");
+
+        public final String label;
+        Department(String label) { this.label = label; }
+    }
+
+    // Valid manager types, from the highest level to the lowest
+    public enum ManagerType {
+        HEAD_MANAGER("Head Manager"), SENIOR_MANAGER("Senior Manager"), MANAGER("Manager"),
+        ASSISTANT_MANAGER("Assistant Manager"), TEAM_LEAD("Team Lead"), OFFICER("Officer"), CLERK("Clerk");
+
+        public final String label;
+        ManagerType(String label) { this.label = label; }
+    }
+
+    private final String name;
+    private final String managerType;
+    private final String department;
+
+    public Employee(String name, String managerType, String department) {
+        this.name = name;
+        this.managerType = managerType;
+        this.department = department;
+    }
+    
+    
 }
