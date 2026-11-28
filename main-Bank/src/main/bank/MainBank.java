@@ -31,6 +31,26 @@ public class MainBank {
          }
          
          //This is the loop for the menu
+      MenuOption option;
+        do {
+            view.showMenu();
+            option = MenuOption.values()[view.askNumber("> ", MenuOption.values().length) - 1];
+            view.showMessage(option.label + " selected");
+
+            switch (option) {
+                case SORT:        sort();       break;
+                case SEARCH:      search();     break;
+                case ADD_RECORDS: addRecord();  break;
+                case BINARY_TREE: buildTree();  break;
+                case EXIT:        view.showMessage("Goodbye!");
+            }
+        } while (option != MenuOption.EXIT);
+    }
+
+    private static void sort() {
+        employees = Sorter.quickSort(employees);
+        view.showMessage("First 20 employees in alphabetical order:");
+        view.showEmployees(employees, 20);
     
    
     
