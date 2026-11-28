@@ -37,5 +37,15 @@ public class Employee {
         this.department = department;
     }
     
-    
+     public String getName()        { return name; }
+    public String getManagerType() { return managerType; }
+    public String getDepartment()  { return department; }
+
+    // Position in the hierarchy of job
+    public int rank() {
+        for (ManagerType t : ManagerType.values()) {
+            if (t.label.equalsIgnoreCase(managerType)) return t.ordinal();
+        }
+        return ManagerType.values().length; // unknown type goes to the bottom
+    }
 }

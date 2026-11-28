@@ -31,3 +31,15 @@ public class Menu {
             System.out.println((o.ordinal() + 1) + ". " + o.label);
         }     
 }
+    // ask for a number between 1 and 5
+ public int askNumber(String question, int max) {
+        while (true) {
+            System.out.print(question);
+            try {
+                int n = Integer.parseInt(scanner.nextLine().trim());
+                if (n >= 1 && n <= max) return n;
+            } catch (NumberFormatException e) { /* not a number */ }
+            System.out.println("Invalid option. Please enter a number from 1 to " + max + ".");
+        }
+    }
+
